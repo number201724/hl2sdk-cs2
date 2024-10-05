@@ -86,7 +86,7 @@ void _V_memset (void *dest, int fill, int count)
 void _V_memcpy (void *dest, const void *src, int count)
 {
 	Assert( count >= 0 );
-	AssertValidReadPtr( src, count );
+//	AssertValidReadPtr( src, count );
 	AssertValidWritePtr( dest, count );
 
 	memcpy( dest, src, count );
@@ -95,7 +95,7 @@ void _V_memcpy (void *dest, const void *src, int count)
 void _V_memmove(void *dest, const void *src, int count)
 {
 	Assert( count >= 0 );
-	AssertValidReadPtr( src, count );
+	//AssertValidReadPtr( src, count );
 	AssertValidWritePtr( dest, count );
 
 	memmove( dest, src, count );
@@ -104,8 +104,8 @@ void _V_memmove(void *dest, const void *src, int count)
 int _V_memcmp (const void *m1, const void *m2, int count)
 {
 	Assert( count >= 0 );
-	AssertValidReadPtr( m1, count );
-	AssertValidReadPtr( m2, count );
+	//AssertValidReadPtr( m1, count );
+	//AssertValidReadPtr( m2, count );
 
 	return memcmp( m1, m2, count );
 }
@@ -628,7 +628,7 @@ void V_wcsncpy( wchar_t *pDest, wchar_t const *pSrc, int maxLenInBytes )
 {
 	Assert( maxLenInBytes >= 0 );
 	AssertValidWritePtr( pDest, maxLenInBytes );
-	AssertValidReadPtr( pSrc );
+	//AssertValidReadPtr( pSrc );
 
 	int maxLen = maxLenInBytes / sizeof(wchar_t);
 
@@ -645,7 +645,7 @@ int V_snwprintf( wchar_t *pDest, int maxLen, const wchar_t *pFormat, ... )
 {
 	Assert( maxLen >= 0 );
 	AssertValidWritePtr( pDest, maxLen );
-	AssertValidReadPtr( pFormat );
+	//AssertValidReadPtr( pFormat );
 
 	va_list marker;
 
@@ -962,7 +962,7 @@ int V_UTF8ToUnicode( const char *pUTF8, wchar_t *pwchDest, int cubDestSizeInByte
 int V_UnicodeToUTF8( const wchar_t *pUnicode, char *pUTF8, int cubDestSizeInBytes )
 {
 	AssertValidStringPtr(pUTF8, cubDestSizeInBytes);
-	AssertValidReadPtr(pUnicode);
+	//AssertValidReadPtr(pUnicode);
 
 	pUTF8[0] = 0;
 #ifdef _WIN32

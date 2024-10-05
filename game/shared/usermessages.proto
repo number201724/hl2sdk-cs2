@@ -661,12 +661,12 @@ message CUserMessage_DllStatus {
 	message CVDiagnostic {
 		optional uint32 id = 1;
 		optional uint32 extended = 2;
-		optional uint64 value = 3;
+		optional uint64 value = 3 [jstype = JS_STRING];
 		optional string string_value = 4;
 	}
 
 	message CModule {
-		optional uint64 base_addr = 1;
+		optional uint64 base_addr = 1 [jstype = JS_STRING];
 		optional string name = 2;
 		optional uint32 size = 3;
 		optional uint32 timestamp = 4;
@@ -677,7 +677,7 @@ message CUserMessage_DllStatus {
 	optional uint32 total_files = 3;
 	optional uint32 process_id = 4;
 	optional int32 osversion = 5;
-	optional uint64 client_time = 6;
+	optional uint64 client_time = 6 [jstype = JS_STRING];
 	repeated .CUserMessage_DllStatus.CVDiagnostic diagnostics = 7;
 	repeated .CUserMessage_DllStatus.CModule modules = 8;
 }
@@ -691,10 +691,10 @@ message CUserMessageRequestInventory {
 message CUserMessage_Inventory_Response {
 	message InventoryDetail {
 		optional int32 index = 1;
-		optional int64 primary = 2;
-		optional int64 offset = 3;
-		optional int64 first = 4;
-		optional int64 base = 5;
+		optional int64 primary = 2 [jstype = JS_STRING];
+		optional int64 offset = 3 [jstype = JS_STRING];
+		optional int64 first = 4 [jstype = JS_STRING];
+		optional int64 base = 5 [jstype = JS_STRING];
 		optional string name = 6;
 		optional string base_name = 7;
 		optional int32 base_detail = 8;
@@ -714,20 +714,20 @@ message CUserMessage_Inventory_Response {
 	optional int32 inv_type = 11;
 	optional int32 build_version = 12;
 	optional int32 instance = 13;
-	optional int64 start_time = 15;
+	optional int64 start_time = 15 [jstype = JS_STRING];
 }
 
 message CUserMessageRequestDiagnostic {
 	message Diagnostic {
 		optional int32 index = 1;
-		optional int64 offset = 2;
+		optional int64 offset = 2 [jstype = JS_STRING];
 		optional int32 param = 3;
 		optional int32 length = 4;
 		optional int32 type = 5;
-		optional int64 base = 6;
-		optional int64 range = 7;
-		optional int64 extent = 8;
-		optional int64 detail = 9;
+		optional int64 base = 6 [jstype = JS_STRING];
+		optional int64 range = 7 [jstype = JS_STRING];
+		optional int64 extent = 8 [jstype = JS_STRING];
+		optional int64 detail = 9 [jstype = JS_STRING];
 		optional string name = 10;
 		optional string alias = 11;
 		optional bytes vardetail = 12;
@@ -740,34 +740,34 @@ message CUserMessageRequestDiagnostic {
 message CUserMessage_Diagnostic_Response {
 	message Diagnostic {
 		optional int32 index = 1;
-		optional int64 offset = 2;
+		optional int64 offset = 2 [jstype = JS_STRING];
 		optional int32 param = 3;
 		optional int32 length = 4;
 		optional bytes detail = 5;
-		optional int64 base = 6;
-		optional int64 range = 7;
+		optional int64 base = 6 [jstype = JS_STRING];
+		optional int64 range = 7 [jstype = JS_STRING];
 		optional int32 type = 8;
 		optional string name = 10;
 		optional string alias = 11;
 		optional bytes backup = 12;
 		optional int32 context = 13;
-		optional int64 control = 14;
-		optional int64 augment = 15;
-		optional int64 placebo = 16;
+		optional int64 control = 14 [jstype = JS_STRING];
+		optional int64 augment = 15 [jstype = JS_STRING];
+		optional int64 placebo = 16 [jstype = JS_STRING];
 	}
 
 	repeated .CUserMessage_Diagnostic_Response.Diagnostic diagnostics = 1;
 	optional int32 build_version = 2;
 	optional int32 instance = 3;
-	optional int64 start_time = 4;
+	optional int64 start_time = 4 [jstype = JS_STRING];
 	optional int32 osversion = 5;
 	optional int32 platform = 6;
 }
 
 message CUserMessage_ExtraUserData {
 	optional int32 item = 1;
-	optional int64 value1 = 2;
-	optional int64 value2 = 3;
+	optional int64 value1 = 2 [jstype = JS_STRING];
+	optional int64 value2 = 3 [jstype = JS_STRING];
 	repeated bytes detail1 = 4;
 	repeated bytes detail2 = 5;
 }
